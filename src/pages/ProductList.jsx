@@ -61,13 +61,8 @@ const ProductList = () => {
         // Map data based on columns
         const formattedProducts = data.map(item => ({
           name: item.name || '',
-          brand: item.brand || '',
-          category: item.category || '',
-          price: Number(item.price) || 0,
-          description: item.description || '',
           image: item.image || '',
-          stock: item.stock !== undefined ? Boolean(item.stock) : true,
-        })).filter(p => p.name && p.price); // Filter out rows without name/price
+        })).filter(p => p.name); // Filter out rows without name
 
         if (formattedProducts.length > 0) {
           if (window.confirm(`Found ${formattedProducts.length} products. Proceed with upload?`)) {
@@ -90,9 +85,7 @@ const ProductList = () => {
   };
 
   const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchQuery.toLowerCase())
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -133,7 +126,7 @@ const ProductList = () => {
         <Search className="text-gray-400 w-5 h-5 ml-2" />
         <input
           type="text"
-          placeholder="Search by name, brand, or category..."
+          placeholder="Search by name..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-transparent border-none outline-none text-gray-700"
