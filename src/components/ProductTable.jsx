@@ -13,6 +13,7 @@ const ProductTable = ({ products, onDelete }) => {
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="px-6 py-4 text-sm font-semibold text-gray-600">Image</th>
               <th className="px-6 py-4 text-sm font-semibold text-gray-600">Name</th>
+              <th className="px-6 py-4 text-sm font-semibold text-gray-600">Category</th>
 
               <th className="px-6 py-4 text-sm font-semibold text-gray-600 text-center">Actions</th>
             </tr>
@@ -20,7 +21,7 @@ const ProductTable = ({ products, onDelete }) => {
           <tbody className="divide-y divide-gray-100">
             {products.length === 0 ? (
               <tr>
-                <td colSpan="3" className="px-6 py-8 text-center text-gray-500">
+                <td colSpan="4" className="px-6 py-8 text-center text-gray-500">
                   no products found. Add some products or check your search query.
                 </td>
               </tr>
@@ -38,6 +39,11 @@ const ProductTable = ({ products, onDelete }) => {
                   </td>
                   <td className="px-6 py-4">
                     <div className="font-medium text-gray-900">{product.name}</div>
+                  </td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      {product.category || 'Uncategorized'}
+                    </span>
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-center gap-3">

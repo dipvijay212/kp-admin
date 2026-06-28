@@ -61,6 +61,7 @@ const ProductList = () => {
         // Map data based on columns
         const formattedProducts = data.map(item => ({
           name: item.name || '',
+          category: item.category || '',
           image: item.image || '',
         })).filter(p => p.name); // Filter out rows without name
 

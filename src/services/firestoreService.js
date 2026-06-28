@@ -10,6 +10,12 @@ export const getProducts = async () => {
   return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 };
 
+export const getCategories = async () => {
+  const products = await getProducts();
+  const categories = products.map(p => p.category).filter(Boolean);
+  return [...new Set(categories)];
+};
+
 export const getProductById = async (id) => {
   const docRef = doc(db, COLLECTION_NAME, id);
   const docSnap = await getDoc(docRef);

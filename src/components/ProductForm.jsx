@@ -2,13 +2,28 @@ import React, { useState, useEffect } from 'react';
 import ImageUploader from './ImageUploader';
 import { Save, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { getCategories } from '../services/firestoreService';
 
 const ProductForm = ({ initialData, onSubmit, isLoading }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
+    category: '',
     image: '',
   });
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCats = async () => {
+      try {
+        const cats = await getCategories();
+        setCategories(cats);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+    fetchCats();
+  }, []);
 
   useEffect(() => {
     if (initialData) {
@@ -46,6 +61,24 @@ const ProductForm = ({ initialData, onSubmit, isLoading }) => {
             />
           </div>
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+            <input
+              type="text"
+              name="category"
+              list="category-options"
+              required
+              value={formData.category}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+              placeholder="Select or enter new category"
+            />
+            <datalist id="category-options">
+              {categories.map((cat, idx) => (
+                <option key={idx} value={cat} />
+              ))}
+            </datalist>
+          </div>
         </div>
 
         <div>
