@@ -97,7 +97,7 @@ const ProductList = () => {
           <p className="text-gray-500 text-sm mt-1">Manage your catalog items</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto mt-4 md:mt-0">
           <input
             type="file"
             ref={fileInputRef}
@@ -108,7 +108,7 @@ const ProductList = () => {
           <button
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm disabled:opacity-50"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm disabled:opacity-50 flex-1 sm:flex-none"
           >
             {isUploading ? <Upload className="w-5 h-5 animate-bounce" /> : <FileDown className="w-5 h-5 text-gray-500" />}
             {isUploading ? 'Uploading...' : 'Bulk Import'}
@@ -116,7 +116,7 @@ const ProductList = () => {
           
           <Link
             to="/products/add"
-            className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-[#081650] text-white font-medium rounded-lg transition-colors shadow-md shadow-primary/20"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-primary hover:bg-[#081650] text-white font-medium rounded-lg transition-colors shadow-md shadow-primary/20 flex-1 sm:flex-none"
           >
             <Plus className="w-5 h-5" /> Add Product
           </Link>

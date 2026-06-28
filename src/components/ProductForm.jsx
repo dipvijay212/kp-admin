@@ -90,18 +90,18 @@ const ProductForm = ({ initialData, onSubmit, isLoading }) => {
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-end gap-4 border-t pt-6">
+      <div className="mt-8 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-3 sm:gap-4 border-t pt-6">
         <button
           type="button"
           onClick={() => navigate('/products')}
-          className="flex items-center gap-2 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+          className="flex items-center justify-center gap-2 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
         >
           <X size={18} /> Cancel
         </button>
         <button
           type="submit"
           disabled={isLoading}
-          className="flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-[#081650] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-md shadow-primary/20"
+          className="flex items-center justify-center gap-2 px-6 py-2 bg-primary text-white rounded-lg hover:bg-[#081650] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-md shadow-primary/20"
         >
           <Save size={18} /> {isLoading ? 'Saving...' : 'Save Product'}
         </button>
