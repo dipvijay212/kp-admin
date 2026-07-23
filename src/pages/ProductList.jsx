@@ -63,7 +63,7 @@ const ProductList = () => {
           name: item.name || '',
           category: item.category || '',
           image: item.image || '',
-        })).filter(p => p.name); // Filter out rows without name
+        })).filter(p => p.name || p.category || p.image); // Filter out completely empty rows
 
         if (formattedProducts.length > 0) {
           if (window.confirm(`Found ${formattedProducts.length} products. Proceed with upload?`)) {
@@ -86,7 +86,7 @@ const ProductList = () => {
   };
 
   const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    (product.name || '').toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

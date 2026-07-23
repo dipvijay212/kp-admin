@@ -71,7 +71,7 @@ export const Layout = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 md:ml-64 flex flex-col min-h-screen">
+      <main className="flex-1 md:ml-64 flex flex-col min-h-screen min-w-0">
         {/* Mobile Header */}
         <div className="md:hidden bg-white border-b border-gray-200 p-4 flex items-center gap-3 sticky top-0 z-30">
           <button onClick={toggleSidebar} className="text-gray-500 hover:text-gray-700">
@@ -80,7 +80,7 @@ export const Layout = () => {
           <div className="font-bold text-gray-900">KP Hardware</div>
         </div>
         
-        <div className="p-4 md:p-8 flex-1">
+        <div className="p-4 md:p-8 flex-1 min-w-0">
           <Outlet />
         </div>
       </main>

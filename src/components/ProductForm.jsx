@@ -49,11 +49,10 @@ const ProductForm = ({ initialData, onSubmit, isLoading }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Product Name *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Product Name (Optional)</label>
             <input
               type="text"
               name="name"
-              required
               value={formData.name}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
@@ -62,12 +61,11 @@ const ProductForm = ({ initialData, onSubmit, isLoading }) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Category (Optional)</label>
             <input
               type="text"
               name="category"
               list="category-options"
-              required
               value={formData.category}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
